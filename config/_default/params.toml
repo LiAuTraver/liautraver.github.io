@@ -2,19 +2,19 @@
 mainSections = ["post"]
 # Output page's full content in RSS.
 rssFullContent = true
-favicon = "/favicon.png"
+favicon = "/icon_folder.ico"
 
 [footer]
-since = 2020
-customText = ""
+since = 2024
+customText = "LiAuTraver"
 
 [dateFormat]
 published = "Jan 02, 2006"
 lastUpdated = "Jan 02, 2006 15:04 MST"
 
 [sidebar]
-emoji = "🍥"
-subtitle = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+emoji = "" # null to disable
+subtitle = "Creativity for all."
 
 [sidebar.avatar]
 enabled = true
@@ -27,17 +27,17 @@ readingTime = true
 
 [article.license]
 enabled = true
-default = "Licensed under CC BY-NC-SA 4.0"
+default = "CC BY-NC-SA 4.0" # license for all articles
 
-## Widgets
+# Widgets
 [[widgets.homepage]]
 type = "search"
 
-[[widgets.homepage]]
-type = "archives"
+# [[widgets.homepage]]
+# type = "archives"
 
-[widgets.homepage.params]
-limit = 5
+# [widgets.homepage.params]
+# limit = 5
 
 [[widgets.homepage]]
 type = "categories"
@@ -76,7 +76,7 @@ enabled = true
 ## Comments
 [comments]
 enabled = true
-provider = "disqus"
+provider = "utterances"
 
 [comments.disqusjs]
 shortname = ""

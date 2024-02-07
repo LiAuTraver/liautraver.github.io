@@ -1,0 +1,4 @@
+seURL = 'https://example.org/'
+languageCode = 'en-us'
+title = "LiAuTraver's Blog"
+theme = "hugo-theme-stack"
