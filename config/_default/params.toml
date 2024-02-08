@@ -86,9 +86,9 @@ admin = ""
 adminLabel = ""
 
 [comments.utterances]
-repo = ""
+repo = "LiAuTraver/liautraver.github.io"
 issueTerm = "pathname"
-label = ""
+label = "comment"
 
 [comments.remark42]
 host = ""
