@@ -17,7 +17,7 @@ tags:
 ## Basics
 
 ```Powershell
-git config --global init.defaultBranch master
+git config --global init.defaultBranch main (or master) # set default branch
 ```
 
 initialize repo for the first time.
@@ -46,10 +46,11 @@ restore staged files,.
 
 ```Powershell
 git rm [file 1] [file 2] ... [file n]
-git rm . // all files. (What the hell why would you use this command?)
+git rm . // all files. (you won't do this, right?)
 ```
 
-delete some (tracked) files. __which means removing files, you cannot find them in recyclebin!__
+delete some (tracked) files. __which means removing files, you cannot find them in recycle bin!__
+*But we can retrieve them from the commit history.*
 
 rename a file:
 
@@ -61,7 +62,7 @@ git mv [old name] [new name]
 
 ```Powershell
 git commit -m "some commit info..."
-git commit -a -m "some commit info..." 
+git commit -am "some commit info..." 
 ```
 
 commit staged files.
@@ -199,7 +200,7 @@ when everything up to date, we could create a pull request and add comments. Git
 
 ### When merged but lots of differences still exist
 
-If there are lots of differences between the two branches, but git merge says 'Already up to date', it's possible that the branches have diverged in a way that Git doesn't recognize as a simple forward or backward set of changes.This can happen if you've rebased one of the branches, or if you've force-pushed to a branch that's been rebased by someone else.We can use:
+If there are lots of differences between the two branches, but git merge says 'Already up to date', it's possible that the branches have diverged in a way that Git does not recognize as a simple forward or backward set of changes.This can happen if you've rebased one of the branches, or if you've force-pushed to a branch that's been rebased by someone else.We can use:
 
 ```powershell
 git diff [branch 1]..[branch 2] > [filename].patch
@@ -213,7 +214,7 @@ switch to `branch 1` and use:
 git apply [filename].patch
 ```
 
-if having confilcts, solve it.
+if having conflicts, solve it.
 then commit and push. all done.
 
 here's another way:
@@ -264,7 +265,7 @@ git push origin -u [new branch name]
 
 :P
 
-### Create a SSH
+### Create an SSH
 
 #### Windows
 
@@ -306,7 +307,7 @@ Ed25519 has several advantages over other signature schemes such as RSA or ECDSA
 
 ---
 
-Nevigating to GitHub `settings - SSH and GPG keys`, paste the `SSH public key`.
+Navigating to GitHub `settings - SSH and GPG keys`, paste the `SSH public key`.
 
 ### When something goes wrong
 
@@ -333,11 +334,10 @@ Hi [user.name]! You have successfully authenticated, but GitHub does not provide
 
 which means the SSH key is working.
 
-If it shows `Permission denied (publickey).`, then the SSH key is not working. That's another story, you may need to reintall the SSH key or reconfigure the SSH key.
+If it shows `Permission denied (publickey).`, then the SSH key is not working. That's another story, you may need to reinstall the SSH key or reconfigure the SSH key.
 
 ```powershell
 vim ~/.ssh/config 
-# I use vim in Windows as well, you can use any editor you like, e.g., notepad, nano, etc.
 ```
 
 and add the following lines:
@@ -374,8 +374,8 @@ first time of the repo, we should:
 ```powershell
 git remote add origin git@github.com:username/repositoryname.git
 git remote set-url origin git@github.com:username/repositoryname.git
-git push --set-upstream origin main
 git remote -v # check if the remote is set correctly
+git push --set-upstream origin main
 ```
 
 The `user.name` is the name in GitHub, i.e. @username.
@@ -463,7 +463,7 @@ git revert [commit-hash]
 
 ### Restore from local commit
 
-when lost chages due to improper use, first check the commit info:
+when lost changes due to improper use, first check the commit info:
 
 ```powershell
 git reflog # short for `reference log`, which is a reference to the commits that are referenced by the tips of branches and tags.
