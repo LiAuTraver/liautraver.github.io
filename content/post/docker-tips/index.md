@@ -69,6 +69,11 @@ Hello, Docker!
 
 Note: Docker images aren't stored in the current directory, but in the Docker daemon's storage area.
 
+```Shell
+docker ps # list all running containers
+docker ps -a # list all containers
+```
+
 ## Docker Hub
 
 Docker Hub is a cloud-based registry service for Docker, just like GitHub for Git. It allows you to push and pull images from the cloud and share them with others.
@@ -80,5 +85,11 @@ docker pull hello-docker:test # pull the image from Docker Hub
 ```
 
 ## Run a Ubuntu Docker Container
+
+```Shell
+docker run -it ubuntu:latest /bin/bash
+```
+
+`-it` is a combination of `-i` and `-t`. `-i` stands for interactive, `-t` stands for terminal. It allows us to interact with the container. Otherwise, the container will exit immediately after running the command.
 
 
