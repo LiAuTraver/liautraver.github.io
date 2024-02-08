@@ -1,8 +1,8 @@
 ---
 title: Hello World
-description: First post
+description: First post on my new blog.
 slug: hello-world
-date: 2024-02-06T15:48:25+08:00
+date: 2024-01-31T15:48:25+08:00
 image: cover.jpg
 categories:
     - Example Category
