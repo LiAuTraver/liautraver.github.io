@@ -16,7 +16,8 @@ tags:
 When developing applications, it is common to have different environments for development, testing, and production. This can lead to "it works on my machine" problems. Docker solves this problem by creating a consistent environment for applications to run in.
 
 As its name, `docker`, a platform for developers and sysadmins to develop, ship, and run applications. 
-Docker itself will automatically package an application and its dependencies in a container that can run on any environment.
+Docker itself will automatically package an application and its dependencies in a container
+that can run in any environment.
 
 #### Container and Virtual Machine
 
@@ -26,7 +27,7 @@ But there are some problems. Virtual machines are highly resource-intensive, for
 
 Containers are similar to virtual machines, but they are more lightweight and share the host system's kernel. They do not need a whole operating system, which means they consume fewer resources such as CPU, memory, and storage. All containers share the same OS kernel. macOS does not support containers natively, Docker for Mac uses a Linux VM instead. On Windows, ensure the Optional feature `Hyper-V` and `Containers` are enabled.
 
-## Build and Run a Docker Container - Hello Docker
+## Build and Run a Docker Container — Hello Docker
 
 To build a Docker container, we need to create a `Dockerfile` which contains the instructions to build the container. For instance, we make a simple Docker image that runs a `node.js` application.
 
