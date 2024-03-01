@@ -492,7 +492,7 @@ first we should use `git fetch origin` to fetch the latest changes and then:
 git reset --hard origin/[branch name]
 ```
 
-we could try compare the local and remote repository before recovery:
+we could try to compare the local and remote repository before recovery:
 
 ```powershell
 git diff origin/[branch name]
@@ -500,4 +500,3 @@ git diff origin/[branch name]
 
 Remember, `git reset --hard` is a destructive operation. It permanently discards local changes and commits. Make sure you really want to discard your local changes before running this command. If you want to keep your local changes, consider using git stash or git branch to save them somewhere else before running `git reset --hard`.
 
-*License: CC BY-NC-SA 4.0.*

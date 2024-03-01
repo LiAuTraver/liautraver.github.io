@@ -90,12 +90,57 @@ sudo apt install <package>
 *we need a cleanup sometimes...*
 
 ```pwsh
-sudo apt-list --installed // list all installed packages
+sudo apt list --installed // list all installed packages
 sudo apt remove <package>
 sudo apt autoremove
-sudo apt clean
+sudo apt autoclean
+sudo apt autopurge
 sudo journalctl --vacuum-time=nd // n > 0, remove system logs
+aptitude // interactive package manager
 ```
+##### purge removed packages
+
+```pwsh
+dpkg -l | grep '^rc' | awk '{print $2}' // list removed packages
+dpkg -l | grep '^rc' | awk '{print $2}' | xargs sudo dpkg --purge // purge removed packages
+```
+
+##### restart service (usually after modifying configuration file)
+
+```pwsh
+source ~/.bashrc // apply changes in .bashrc
+sudo systemctl restart [service]
+```
+
+##### when having multiple versions of a package
+
+for example, we have multiple versions of `gcc` installed, and we want to switch between them.
+
+```pwsh
+sudo update-alternatives --config gcc // list all versions of gcc
+sudo update-alternatives --remove-all gcc // remove all versions of gcc(only remove the link, not the package)
+```
+
+set gcc-13 as default:
+
+```pwsh
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-12 20
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-13 30
+```
+
+##### Ubuntu VM occupied too much space dispite not having much data in it
+
+Windows automatically allocates a certain amount of space for the VM, that means even if you clean up the VM, the space won't be released. To solve this problem, we need to compact the VM.
+
+Launch PowerShell as administrator, and run the following commands: 
+
+```pwsh
+cd "%userprofile%\AppData\Local\Packages\CanonicalGroupLimited.<Distro>\LocalState\" // go to the VM folder
+wsl --shutdown // shut down the VM
+optimize-vhd -Path .\ext4.vhdx -Mode full // compact the VM
+```
+
+check the space again, it should be fine now.
 
 ##### wget: The non-interactive network downloader
 
@@ -117,6 +162,8 @@ curl -O <url>
 ```
 
 ##### scp: OpenSSH secure file copy (remote file copy program)
+
+### add ssh key to remote server
 
 ```pwsh
 scp [-C] [-i /path/to/your/pem] [-r] <user>@<host>:<folder> <local_folder> // remote to local
@@ -205,3 +252,16 @@ can also use <kbd>CTRL</kbd> <kbd>A</kbd> chords to <kbd>D</kbd> to detach a scr
 to scroll in a screen, use <kbd>Ctrl</kbd> + <kbd>A</kbd> chords to <kbd>[</kbd> to enter copy mode, then use <kbd>CTRL</kbd> <kbd>F</kbd>,<kbd>CTRL</kbd> <kbd>B</kbd> to scroll front and back, <kbd>q</kbd> to quit(abort the copy mode).
 
 to run a script in a screen, just `screen -S <name> ./<script>`.
+
+##### install llvm-clang from source
+
+```pwsh
+$ git clone --depth 1 --branch llvmorg-12.0.1 https://github.com/llvm/llvm-project.git
+$ cmake -S llvm-project/llvm -B llvm-project/build \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DLLVM_ENABLE_PROJECTS=all \
+        -DCMAKE_CXX_COMPILER=clang++ \
+        -DCMAKE_C_COMPILER=clang
+$ cmake --build llvm-project/build -j8
+$ cmake --install llvm-project/build --prefix /usr/local  # or somewhere else
+```

@@ -1,7 +1,7 @@
 ---
 title: "Using MSVC in Visual Studio Code"
 description: "When GCC does not work..."
-date: 2024-02-07T13:17:25+08:00
+date: 2024-02-17T13:17:25+08:00
 image: vscode.png
 math: 
 license: 
@@ -16,6 +16,7 @@ tags:
   - MSVC
 ---
 
+> ## **<span style = "color: red;">*The content was outdated and would be updated in the near future.*</span>**
 
 When I first ventured into the realm of C++, DEV C++ served as my initial Integrated Development Environment (IDE). It boasted simplicity and minimalism, making it particularly welcoming for beginners. However, at the time of its release, DEV's GCC was stuck at C++11. The outdated user interface further dampened its appeal. There's no point using a decade-old compiler and it's outdated user interface. Nor does it have intellisense or any other modern IDE features. So I moved to Visual Studio, only to find it too complex and bloated for my taste.Visual Studio Code is the perfect middle ground for me. It's lightweight, has intellisense, and supports the latest C++ standard. After struggling with the editor for a whole day, the GCC `launch.json` and `tasks.json` still failed to work in the integrated terminal. The external terminal launched was *surprisingly* slow. I had to shift my focus to MSVC.
 

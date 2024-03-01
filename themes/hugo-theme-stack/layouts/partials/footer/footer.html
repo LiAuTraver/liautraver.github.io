@@ -7,7 +7,7 @@
         {{ end }}
         {{ now.Format "2006" }} {{ default .Site.Title .Site.Copyright }}
     </section>
-    
+
     <section class="powerby">
         {{ with .Site.Params.footer.customText }}
             {{ . | safeHTML }} <br/>
