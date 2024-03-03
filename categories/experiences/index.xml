@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Experiences on LiAuTraver's Corner</title><link>https://liautraver.github.io/categories/experiences/</link><description>Recent content in Experiences on LiAuTraver's Corner</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 08 Feb 2024 20:08:01 +0800</lastBuildDate><atom:link href="https://liautraver.github.io/categories/experiences/index.xml" rel="self" type="application/rss+xml"/><item><title>Decoding Docker: Enhancing App Development</title><link>https://liautraver.github.io/p/decoding-docker-enhancing-app-development/</link><pubDate>Thu, 08 Feb 2024 20:08:01 +0800</pubDate><guid>https://liautraver.github.io/p/decoding-docker-enhancing-app-development/</guid><description>&lt;img src="https://liautraver.github.io/p/decoding-docker-enhancing-app-development/docker.png" alt="Featured image of post Decoding Docker: Enhancing App Development" />&lt;h2 id="what-is-docker">What is Docker?&lt;/h2>
+&lt;p>When developing applications, it is common to have different environments for development, testing, and production.
+This can lead to &amp;ldquo;it works only on my machine&amp;rdquo; problems.
+That&amp;rsquo;s why &lt;a class="link" href="https://www.docker.com/" target="_blank" rel="noopener"
+>Docker&lt;/a> comes in.&lt;/p>
+&lt;p>As its name, Docker adeptly encapsulates applications and their dependencies,
+ensuring seamless operation in any environment.
+This systematic approach not only addresses compatibility concerns
+but also streamlines the development and deployment processes with precision.&lt;/p>
+&lt;h2 id="unpacking-containers-vs-virtual-machines">Unpacking Containers vs. Virtual Machines&lt;/h2>
+&lt;p>We&amp;rsquo;re all acquainted with virtual machines like WSL on Windows – complete operating systems and applications running atop a hypervisor.
+However, they come with their fair share of challenges.&lt;/p>
+&lt;p>Virtual machines tend to be resource-intensive,
+for each VM demands the entire operating system to be loaded and running,
+making them sizable and slow to start without a full-blown OS.&lt;/p>
+&lt;p>On the other hand, containers are a more efficient alternative when it comes to application development and deployment.
+Containers are lightweight and cozy up to the host system&amp;rsquo;s kernel.
+Unlike VMs, they don&amp;rsquo;t require a full operating system,
+resulting in more frugal consumption of resources such as CPU, memory, and storage.
+All containers share the same OS kernel.
+While macOS doesn&amp;rsquo;t naturally support containers, Docker for Mac ingeniously employs a Linux VM.
+On Windows, make sure to activate the Optional features Hyper-V and Containers to dive into the container magic.&lt;/p>
+&lt;h2 id="build-and-run-a-docker-container--hello-docker">Build and Run a Docker Container — Hello Docker&lt;/h2>
+&lt;p>To build a Docker container, simply create a &lt;code>Dockerfile&lt;/code> which contains the instructions to build the container.
+For instance, I&amp;rsquo;ll show how to make a simple Docker image that runs a &lt;code>node.js&lt;/code> application.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-Shell" data-lang="Shell">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Create a new directory&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mkdir hello-docker &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="nb">cd&lt;/span> hello-docker
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Create a new file named &lt;code>app.js&lt;/code> and add the following content:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-Javascript" data-lang="Javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Hello, Docker!&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="dockerfiles-crafting-your-apps-blueprint">Dockerfiles: Crafting Your App&amp;rsquo;s Blueprint&lt;/h2>
+&lt;p>Docker builds and runs an image from a &lt;code>Dockerfile&lt;/code>, which is a text file that contains all the commands a user could call on the command line to assemble an image.
+Think of it as the blueprint for your app&amp;rsquo;s ship.
+This cool text file is where you sketch out all the steps, just like a handy guide, for Docker to build and run your image,
+which also makes it possible to share your app with others without worrying about the environment.&lt;/p>
+&lt;p>Create a &lt;code>Dockerfile&lt;/code> using Vim(or whatever) and add the following content:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-Dockerfile" data-lang="Dockerfile">&lt;span class="line">&lt;span class="cl">&lt;span class="k">FROM&lt;/span>&lt;span class="s"> node:alpine&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">COPY&lt;/span> . /app&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">WORKDIR&lt;/span>&lt;span class="s"> /app&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">CMD&lt;/span> node app.js&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Here&amp;rsquo;s a breakdown of the &lt;code>Dockerfile&lt;/code>:&lt;/p>
+&lt;ol>
+&lt;li>&lt;code>FROM node:alpine&lt;/code> — Use the official Node.js runtime as the base image. The &lt;code>alpine&lt;/code> tag is a lightweight version of the Node.js image which only needs 150MiB storage more or less. Some Docker images are extremely large, but the &lt;code>alpine&lt;/code> tag is a minimal image that&amp;rsquo;s perfect for small applications.&lt;/li>
+&lt;li>&lt;code>COPY . /app&lt;/code> — Copy the current directory to the &lt;code>/app&lt;/code> directory in the image. The &lt;code>.&lt;/code> refers to the current directory, and &lt;code>/app&lt;/code> is the directory in the image.&lt;/li>
+&lt;li>&lt;code>WORKDIR /app&lt;/code> — Set the working directory to &lt;code>/app&lt;/code> in the image. This is the directory where the command will be run.&lt;/li>
+&lt;li>&lt;code>CMD node app.js&lt;/code> — Run the &lt;code>node app.js&lt;/code> command when the image is run.&lt;/li>
+&lt;/ol>
+&lt;p>As for large applications, Dockerfile might be more complex, but just like CMake, we don&amp;rsquo;t need to know it comprehensively.
+Check the &lt;a class="link" href="https://docs.docker.com/engine/reference/builder/" target="_blank" rel="noopener"
+>official documentation&lt;/a> and learn when necessary.&lt;/p>
+&lt;p>All done! Now we can build the Docker image and run it.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-Shell" data-lang="Shell">&lt;span class="line">&lt;span class="cl">docker build -t hello-docker:test . &lt;span class="c1"># build the image named `hello-docker` with tag `test`&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">docker image list &lt;span class="c1"># list all images&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">docker run hello-docker:test &lt;span class="c1"># run the image&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>The output should be:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-Shell" data-lang="Shell">&lt;span class="line">&lt;span class="cl">Hello, Docker!
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Congratulations! You&amp;rsquo;ve just built and run your first Docker container.🚀✨&lt;/p>
+&lt;p>Note: Docker images aren&amp;rsquo;t stored in the current directory, but in the Docker daemon&amp;rsquo;s storage area.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-Shell" data-lang="Shell">&lt;span class="line">&lt;span class="cl">docker ps &lt;span class="c1"># list all running containers&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">docker ps -a &lt;span class="c1"># list all containers&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="docker-hub">Docker Hub&lt;/h2>
+&lt;p>&lt;a class="link" href="https://hub.docker.com/" target="_blank" rel="noopener"
+>Docker Hub&lt;/a> is an official cloud-based registry service for Docker, just like GitHub for Git. It allows you to push and pull images from the cloud and share them with others.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-Shell" data-lang="Shell">&lt;span class="line">&lt;span class="cl">docker login &lt;span class="c1"># login to Docker Hub&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">docker push hello-docker:test &lt;span class="c1"># push the image to Docker Hub&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">docker pull hello-docker:test &lt;span class="c1"># pull the image from Docker Hub&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="run-a-ubuntu-docker-container">Run a Ubuntu Docker Container&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-Shell" data-lang="Shell">&lt;span class="line">&lt;span class="cl">docker run -it ubuntu:latest /bin/bash
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>-it&lt;/code> is a combination of &lt;code>-i&lt;/code> and &lt;code>-t&lt;/code>. &lt;code>-i&lt;/code> stands for interactive, &lt;code>-t&lt;/code> stands for terminal. It allows us to interact with the container. Otherwise, the container will exit immediately after running the command.&lt;/p></description></item></channel></rss>

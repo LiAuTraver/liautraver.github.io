@@ -1,0 +1,1030 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Utility on LiAuTraver's Corner</title><link>https://liautraver.github.io/tags/utility/</link><description>Recent content in Utility on LiAuTraver's Corner</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 04 Feb 2024 00:00:36 +0800</lastBuildDate><atom:link href="https://liautraver.github.io/tags/utility/index.xml" rel="self" type="application/rss+xml"/><item><title>Git Tips</title><link>https://liautraver.github.io/p/git-tips/</link><pubDate>Sun, 04 Feb 2024 00:00:36 +0800</pubDate><guid>https://liautraver.github.io/p/git-tips/</guid><description>&lt;h1 id="git-work-flow-with-github">Git work flow with GitHub&lt;/h1>
+&lt;h2 id="basics">Basics&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-Powershell" data-lang="Powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">config&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-global&lt;/span> &lt;span class="n">init&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">defaultBranch&lt;/span> &lt;span class="n">main&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">or&lt;/span> &lt;span class="n">master&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c"># set default branch&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>initialize repo for the first time.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">init&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>now we just use &lt;code>git init&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-Powershell" data-lang="Powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">add&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">file 1] [file 2] ... [file n&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">add&lt;/span> &lt;span class="p">.&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="n">all&lt;/span> &lt;span class="n">files&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>add files, i.e., stage files.&lt;/p>
+&lt;h3 id="more">more&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-Powershell" data-lang="Powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">restore&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-staged&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">file 1] [file 2] ... [file n&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">restore&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-staged&lt;/span> &lt;span class="p">.&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="n">all&lt;/span> &lt;span class="n">files&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>restore staged files,.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-Powershell" data-lang="Powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="nb">rm &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="no">file 1] [file 2] ... [file n&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="nb">rm &lt;/span>&lt;span class="p">.&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="n">all&lt;/span> &lt;span class="n">files&lt;/span>&lt;span class="p">.&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">you&lt;/span> &lt;span class="n">won&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="n">t&lt;/span> &lt;span class="k">do&lt;/span> &lt;span class="n">this&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">right&lt;/span>&lt;span class="p">?)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>delete some (tracked) files. &lt;strong>which means removing files, you cannot find them in recycle bin!&lt;/strong>
+&lt;em>But we can retrieve them from the commit history.&lt;/em>&lt;/p>
+&lt;p>rename a file:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-Powershell" data-lang="Powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="nb">mv &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="no">old name] [new name&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="back-to-the-flow">back to the flow&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-Powershell" data-lang="Powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">commit&lt;/span> &lt;span class="n">-m&lt;/span> &lt;span class="s2">&amp;#34;some commit info...&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">commit&lt;/span> &lt;span class="n">-am&lt;/span> &lt;span class="s2">&amp;#34;some commit info...&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>commit staged files.&lt;/p>
+&lt;p>&lt;code>-a&lt;/code> represents all staged files,namely, without using &lt;code>git add&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">status&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>check the status.&lt;/p>
+&lt;h2 id="stash-is-a-good-friend">Stash is a good friend&lt;/h2>
+&lt;p>stash is a command that allows you to temporarily store changes that you don&amp;rsquo;t want to commit immediately. Stashing is handy if you need to quickly switch context and work on something else, but you&amp;rsquo;re mid-way through a code change and aren&amp;rsquo;t quite ready to commit.&lt;/p>
+&lt;p>In a word, stash save &lt;em>away&lt;/em> changes. If you have multiple approaches to solve a problem, you can use stash to save the current approach and try another one, use stash to store each of them, and choose the best stash to apply.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">stash&lt;/span> &lt;span class="n">save&lt;/span> &lt;span class="s2">&amp;#34;some info...&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>simply stash some changes.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">stash&lt;/span> &lt;span class="n">list&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>list all stashes.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">stash&lt;/span> &lt;span class="n">pop&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>apply the latest stash and remove it from the stash list.
+if you want to apply a specific stash, use:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">stash&lt;/span> &lt;span class="n">apply&lt;/span> &lt;span class="n">stash&lt;/span>&lt;span class="vm">@&lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="n">n&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>where &lt;code>n&lt;/code> is the number of the stash you want to apply.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">stash&lt;/span> &lt;span class="n">apply&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>apply the latest stash and keep it in the stash list.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">stash&lt;/span> &lt;span class="n">drop&lt;/span> &lt;span class="n">stash&lt;/span>&lt;span class="vm">@&lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="n">n&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>remove a specific stash from the stash list.&lt;/p>
+&lt;h2 id="branch">Branch&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">branch&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>view all branches and show current branch, which has &lt;code>green&lt;/code> color and an &lt;code>*&lt;/code> attributes.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">branch&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">new branch name&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>add a new branch.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="k">switch&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">branch name&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>switch to a branch.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="k">switch&lt;/span> &lt;span class="n">-c&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">new branch name&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>create a branch, and then switch to that branch.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">merge&lt;/span> &lt;span class="n">-m&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">merge message] [branch&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>merge a branch to the current branch.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">branch&lt;/span> &lt;span class="n">-d&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">branch name&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">branch&lt;/span> &lt;span class="n">-D&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">branch name&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>-d&lt;/code> : delete a branch.&lt;/p>
+&lt;p>&lt;code>-D&lt;/code> : force to delete a not fully merged branch.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">branch&lt;/span> &lt;span class="n">-m&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">branch old name&lt;/span>&lt;span class="p">](&lt;/span>&lt;span class="n">optional&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">branch name&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">branch&lt;/span> &lt;span class="n">-M&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">branch old name&lt;/span>&lt;span class="p">](&lt;/span>&lt;span class="n">optional&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">branch name&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>The &lt;code>-m&lt;/code> option : rename a branch.&lt;/p>
+&lt;p>The &lt;code>-M&lt;/code> option : forcefully rename a branch.&lt;/p>
+&lt;p>If the branch already exists, it will be replaced by the new one. This is different from the &lt;code>-m&lt;/code> option, which will not replace an existing branch with the new one.&lt;/p>
+&lt;p>If the renamed branch has already been pushed to a remote repository, we need to push the renamed branch and reset the upstream branch:&lt;/p>
+&lt;p>for example, if the remote branch renamed from &lt;code>master&lt;/code> to &lt;code>main&lt;/code>, in local machine you should use:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">branch&lt;/span> &lt;span class="n">-m&lt;/span> &lt;span class="n">master&lt;/span> &lt;span class="n">main&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">fetch&lt;/span> &lt;span class="n">origin&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">branch&lt;/span> &lt;span class="n">-u&lt;/span> &lt;span class="n">origin&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">main&lt;/span> &lt;span class="n">main&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">remote&lt;/span> &lt;span class="nb">set-head&lt;/span> &lt;span class="n">origin&lt;/span> &lt;span class="n">-a&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="merge--pull-request">Merge &amp;amp; Pull Request&lt;/h2>
+&lt;h3 id="local-git-merge">Local Git Merge&lt;/h3>
+&lt;p>When the forked branch meets the requirements, we can merge it to the main branch.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">checkout&lt;/span> &lt;span class="n">main&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">merge&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">forked branch&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>if git shows: &lt;code>not something we can merge&lt;/code>, here we may encounter some conflicts, it&amp;rsquo;s time to use &lt;code>git status&lt;/code> to check the conflicts, and then edit the files to solve the conflicts. in VS Code, we can use &lt;code>merge editor&lt;/code> to solve the conflicts in a more convenient way, i.e., VsSCode UI.&lt;/p>
+&lt;h3 id="github-work-flow">GitHub Work Flow&lt;/h3>
+&lt;p>when everything up to date, we could create a pull request and add comments. GitHub will automatically check the conflicts. After solving the conflicts, we can merge the forked branch to the main branch.&lt;/p>
+&lt;h3 id="when-merged-but-lots-of-differences-still-exist">When merged but lots of differences still exist&lt;/h3>
+&lt;p>If there are lots of differences between the two branches, but git merge says &amp;lsquo;Already up to date&amp;rsquo;, it&amp;rsquo;s possible that the branches have diverged in a way that Git does not recognize as a simple forward or backward set of changes.This can happen if you&amp;rsquo;ve rebased one of the branches, or if you&amp;rsquo;ve force-pushed to a branch that&amp;rsquo;s been rebased by someone else.We can use:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="nb">diff &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="no">branch 1]..[branch 2&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="p">&amp;gt;&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">filename&lt;/span>&lt;span class="p">].&lt;/span>&lt;span class="py">patch&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>This will create a file that contains &lt;em>&lt;strong>all&lt;/strong>&lt;/em> the changes from &lt;code>branch 2&lt;/code> that are not in &lt;code>branch 1&lt;/code>.&lt;/p>
+&lt;p>switch to &lt;code>branch 1&lt;/code> and use:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">apply&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">filename&lt;/span>&lt;span class="p">].&lt;/span>&lt;span class="py">patch&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>if having conflicts, solve it.
+then commit and push. all done.&lt;/p>
+&lt;p>here&amp;rsquo;s another way:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">checkout&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">branch 1&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="k">switch&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="n">branch&lt;/span> &lt;span class="mf">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">rebase&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">branch 2&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="n">replay&lt;/span> &lt;span class="n">commits&lt;/span> &lt;span class="n">from&lt;/span> &lt;span class="n">branch&lt;/span> &lt;span class="mf">1&lt;/span> &lt;span class="n">on&lt;/span> &lt;span class="n">top&lt;/span> &lt;span class="n">of&lt;/span> &lt;span class="n">branch&lt;/span> &lt;span class="mf">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">which&lt;/span> &lt;span class="n">means&lt;/span> &lt;span class="n">branch&lt;/span> &lt;span class="mf">1&lt;/span> &lt;span class="n">will&lt;/span> &lt;span class="n">be&lt;/span> &lt;span class="n">updated&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="n">the&lt;/span> &lt;span class="n">latest&lt;/span> &lt;span class="n">commit&lt;/span> &lt;span class="n">of&lt;/span> &lt;span class="n">branch&lt;/span> &lt;span class="mf">2&lt;/span>&lt;span class="p">.&lt;/span> &lt;span class="k">do&lt;/span> &lt;span class="n">not&lt;/span> &lt;span class="n">misunderstand&lt;/span> &lt;span class="n">it&lt;/span>&lt;span class="p">.&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>This will replay the commits from &lt;code>branch 1&lt;/code> on top of &lt;code>branch 2&lt;/code>. If there are any conflicts, Git will pause and allow you to resolve them before continuing.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">rebase&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-continue&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="n">or&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">rebase&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-skip&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="n">or&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">rebase&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-abort&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>git will require you to do command above.
+&lt;em>Note&lt;/em>: if &lt;code>abort&lt;/code>, all uncommitted changes will be lost. so commit your work first!&lt;/p>
+&lt;h4 id="rename-a-branch-locally">Rename a branch locally&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">branch&lt;/span> &lt;span class="n">-m&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">old name] [new name&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="c"># typically means `move` a branch&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="rename-a-branch-both-locally-and-remotely">Rename a branch both locally and remotely&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">push&lt;/span> &lt;span class="n">origin&lt;/span> &lt;span class="err">:&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="no">old branch name] [new branch name&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="c"># delete old branch and create a new branch&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">push&lt;/span> &lt;span class="n">origin&lt;/span> &lt;span class="n">-u&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">new branch name&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="c"># set upstream&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;em>Note: &lt;code>-u&lt;/code> is a shorthand for &lt;code>--set--upstream&lt;/code>.&lt;/em>&lt;/p>
+&lt;h4 id="change-the-default-branch-name-not-recommended">Change the default branch name (&lt;em>not recommended&lt;/em>)&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">branch&lt;/span> &lt;span class="n">-M&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">old branch name] [new branch name&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">push&lt;/span> &lt;span class="n">origin&lt;/span> &lt;span class="n">-u&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">new branch name&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="remote-ssh--repositories">Remote SSH &amp;amp; Repositories&lt;/h2>
+&lt;h3 id="create-a-github-remote-repositories">Create a GitHub remote repositories&lt;/h3>
+&lt;p>&lt;code>.githubignore&lt;/code>&lt;/p>
+&lt;p>:P&lt;/p>
+&lt;h3 id="create-an-ssh">Create an SSH&lt;/h3>
+&lt;h4 id="windows">Windows&lt;/h4>
+&lt;p>in Windows, you should install &lt;code>Open-SSH&lt;/code> in &lt;code>optional feature&lt;/code> panel via &lt;code>settings&lt;/code> first.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">Get-Service&lt;/span> &lt;span class="nb">ssh-agent&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">Start-Service&lt;/span> &lt;span class="nb">ssh-agent&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>and then&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">ssh-keygen&lt;/span> &lt;span class="n">-t&lt;/span> &lt;span class="n">ed25519&lt;/span> &lt;span class="n">-C&lt;/span> &lt;span class="s2">&amp;#34;emailaddress&amp;#34;&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="n">using&lt;/span> &lt;span class="nb">github-provided&lt;/span> &lt;span class="n">noreply&lt;/span> &lt;span class="n">email&lt;/span>&lt;span class="p">.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">ssh-add&lt;/span> &lt;span class="p">~/.&lt;/span>&lt;span class="n">ssh&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">id_ed25519&lt;/span> &lt;span class="c"># If system cannot find the path to the file, using absolute path. e.g. `C:\Users\[user.account.name]\.ssh\id_ed25519.pub`.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">Get-ChildItem&lt;/span> &lt;span class="n">-Path&lt;/span> &lt;span class="p">~\.&lt;/span>&lt;span class="py">ssh&lt;/span> &lt;span class="n">-Force&lt;/span> &lt;span class="c"># check if the file exists.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">Get-Content&lt;/span> &lt;span class="p">~\.&lt;/span>&lt;span class="n">ssh&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">id_ed25519&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">pub&lt;/span> &lt;span class="p">|&lt;/span> &lt;span class="nb">Set-Clipboard&lt;/span> &lt;span class="c"># copy the SSH public key to clipboard.&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="linux">Linux&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt-get install ssh
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-get install xclip &lt;span class="c1"># install xclip to copy text to clipboard.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ssh-keygen -t ed25519 -C &lt;span class="s2">&amp;#34;emailaddress&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ssh-add ~/.ssh/id_ed25519
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">xclip -sel clip &amp;lt; ~/.ssh/id_ed25519.pub
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;p>&lt;em>Notes:&lt;/em>&lt;/p>
+&lt;p>The number &lt;code>25519&lt;/code> in &lt;code>id_ed25519&lt;/code> refers to the Ed25519 signature scheme, which is a specific algorithm for creating cryptographic signatures. This number is not arbitrary; it&amp;rsquo;s part of the name of the algorithm.&lt;/p>
+&lt;p>Ed25519 was designed to be a high-security, high-performance signature scheme. It uses elliptic curve cryptography, specifically the curve known as &lt;code>edwards25519&lt;/code> or &lt;code>Curve25519&lt;/code>. The &lt;code>25519&lt;/code> part of the name refers to the large prime number used in the mathematics of the curve, $2^{255}-19$.&lt;/p>
+&lt;p>Ed25519 has several advantages over other signature schemes such as RSA or ECDSA. It&amp;rsquo;s faster, more secure against various attacks, and generates shorter keys (the private key is 256 bits, and the public key is 128 bits).&lt;/p>
+&lt;hr>
+&lt;p>Navigating to GitHub &lt;code>settings - SSH and GPG keys&lt;/code>, paste the &lt;code>SSH public key&lt;/code>.&lt;/p>
+&lt;h3 id="when-something-goes-wrong">When something goes wrong&lt;/h3>
+&lt;p>There were time when my SSH key was not working, and I got the following error message:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">Pushing&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="n">github&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">com&lt;/span>&lt;span class="err">:&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="no">user.name&lt;/span>&lt;span class="p">]/[&lt;/span>&lt;span class="no">repository.name&lt;/span>&lt;span class="p">].&lt;/span>&lt;span class="py">git&lt;/span> &lt;span class="n">ssh&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="n">connect&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="n">host&lt;/span> &lt;span class="n">github&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">com&lt;/span> &lt;span class="n">port&lt;/span> &lt;span class="mf">22&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="n">Connection&lt;/span> &lt;span class="n">timed&lt;/span> &lt;span class="n">out&lt;/span> &lt;span class="n">fatal&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="n">Could&lt;/span> &lt;span class="n">not&lt;/span> &lt;span class="n">read&lt;/span> &lt;span class="n">from&lt;/span> &lt;span class="n">remote&lt;/span> &lt;span class="n">repository&lt;/span>&lt;span class="p">.&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>So far I do not exactly know why this happened, and I switched to &lt;code>https&lt;/code> but it did not work either.
+After struggling for a whole night and checking out GitHub help, although the reason why the error happened is still unknown, I ultimately grasp the key to make it. Here I&amp;rsquo;m presenting the solution:&lt;/p>
+&lt;p>First, check if the SSH key is working:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">ssh&lt;/span> &lt;span class="n">-T&lt;/span> &lt;span class="n">git&lt;/span>&lt;span class="nv">@github&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">com&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>and it shows:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">Hi&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">user.name&lt;/span>&lt;span class="p">]!&lt;/span> &lt;span class="n">You&lt;/span> &lt;span class="n">have&lt;/span> &lt;span class="n">successfully&lt;/span> &lt;span class="n">authenticated&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">but&lt;/span> &lt;span class="n">GitHub&lt;/span> &lt;span class="n">does&lt;/span> &lt;span class="n">not&lt;/span> &lt;span class="n">provide&lt;/span> &lt;span class="n">shell&lt;/span> &lt;span class="n">access&lt;/span>&lt;span class="p">.&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>which means the SSH key is working.&lt;/p>
+&lt;p>If it shows &lt;code>Permission denied (publickey).&lt;/code>, then the SSH key is not working. That&amp;rsquo;s another story, you may need to reinstall the SSH key or reconfigure the SSH key.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">vim&lt;/span> &lt;span class="p">~/.&lt;/span>&lt;span class="n">ssh&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">config&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>and add the following lines:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">Host&lt;/span> &lt;span class="n">github&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">com&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">Hostname&lt;/span> &lt;span class="n">ssh&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">github&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">com&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">Port&lt;/span> &lt;span class="mf">22&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">User&lt;/span> &lt;span class="n">git&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>reset &lt;code>known_hosts&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cp &lt;/span>&lt;span class="p">~/.&lt;/span>&lt;span class="n">ssh&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">known_hosts&lt;/span> &lt;span class="p">~/.&lt;/span>&lt;span class="n">ssh&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">known_hosts&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">bak&lt;/span> &lt;span class="c"># create a backup just in case&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">vim&lt;/span> &lt;span class="p">~/.&lt;/span>&lt;span class="n">ssh&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">known_hosts&lt;/span> &lt;span class="c"># delete the line of github.com; you can delete the whole file if you like.&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Then try &lt;code>push&lt;/code> again, and you will be pushing to the remote repository with pleasure. Now you can breathe a sigh of relief and enjoy a cup of coffee.&lt;/p>
+&lt;h3 id="basic-configurations">Basic Configurations&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">config&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-global&lt;/span> &lt;span class="n">user&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">name&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">user.name&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">config&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-global&lt;/span> &lt;span class="n">user&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">name&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="n">show&lt;/span> &lt;span class="n">global&lt;/span> &lt;span class="n">username&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">config&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-global&lt;/span> &lt;span class="n">user&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">email&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">user.email&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">config&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-global&lt;/span> &lt;span class="n">user&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">email&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="n">show&lt;/span> &lt;span class="n">the&lt;/span> &lt;span class="n">global&lt;/span> &lt;span class="n">email&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>origin is the default name Git gives to the server from where you cloned your repository. It&amp;rsquo;s essentially an alias for the URL of the remote repository. When you clone a repository, Git automatically creates a remote connection called origin pointing back to the original repository. This is used to fetch updates, push changes, and more.&lt;/p>
+&lt;p>first time of the repo, we should:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">remote&lt;/span> &lt;span class="n">add&lt;/span> &lt;span class="n">origin&lt;/span> &lt;span class="n">git&lt;/span>&lt;span class="nv">@github&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">com&lt;/span>&lt;span class="err">:&lt;/span>&lt;span class="n">username&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">repositoryname&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">git&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">remote&lt;/span> &lt;span class="nb">set-url&lt;/span> &lt;span class="n">origin&lt;/span> &lt;span class="n">git&lt;/span>&lt;span class="nv">@github&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">com&lt;/span>&lt;span class="err">:&lt;/span>&lt;span class="n">username&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">repositoryname&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">git&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">remote&lt;/span> &lt;span class="n">-v&lt;/span> &lt;span class="c"># check if the remote is set correctly&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">push&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-set-upstream&lt;/span> &lt;span class="n">origin&lt;/span> &lt;span class="n">main&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>The &lt;code>user.name&lt;/code> is the name in GitHub, i.e. @username.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">push&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-set-upstream&lt;/span> &lt;span class="n">origin&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">branch&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="c"># set upstream (remote) branch and push&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">branch&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-set-upstream-to&lt;/span>&lt;span class="p">=&lt;/span>&lt;span class="n">origin&lt;/span>&lt;span class="p">/[&lt;/span>&lt;span class="no">branch] [branch&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="c"># when the branch exists both locally and remotely&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>The &lt;code>user.email&lt;/code> &lt;em>must&lt;/em> be public email of GitHub account, or may use GitHub-provided noreply account if email private.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">push&lt;/span> &lt;span class="n">-u&lt;/span> &lt;span class="n">origin&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">branch&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-verbose&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;em>you should always use this command instead of &lt;code>git push --verbose&lt;/code> when pushing a new branch to the remote.&lt;/em>&lt;/p>
+&lt;p>and then&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">fetch&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-verbose&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">merge&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-verbose&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>or just:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">pull&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-verbose&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>git pull&lt;/code> is essentially a &lt;code>git fetch&lt;/code> followed by a &lt;code>git merge&lt;/code>.&lt;/p>
+&lt;p>Next time we just &lt;code>git push --verbose&lt;/code>, not &lt;code>git push -u origin [branch] --verbose&lt;/code> anymore.&lt;/p>
+&lt;hr>
+&lt;p>&lt;em>Breakdown of the command:&lt;/em>&lt;/p>
+&lt;p>&lt;code>origin&lt;/code>: This is the default name Git gives to the server from where you cloned your repository. It&amp;rsquo;s essentially an alias for the URL of the remote repository. When you clone a repository, Git automatically creates a remote connection called &lt;code>origin&lt;/code> pointing back to the original repository. This is used to fetch updates, push changes, and more.&lt;/p>
+&lt;p>&lt;code>main&lt;/code>: This is the branch that you&amp;rsquo;re pushing to the &lt;code>origin&lt;/code> remote. In many repositories, &lt;code>main&lt;/code> is the default branch, but it could be named anything. When you run &lt;code>git push -u origin main&lt;/code>, you&amp;rsquo;re saying &amp;ldquo;push the commits in the local branch named &lt;code>main&lt;/code> to the remote named &lt;code>origin&lt;/code>&amp;rdquo;.&lt;/p>
+&lt;p>&lt;code>-u&lt;/code> stands for &amp;ldquo;upstream&amp;rdquo;. This sets the upstream reference for the current branch. This means that in the future, you can simply type &lt;code>git push&lt;/code> or &lt;code>git pull&lt;/code> without specifying a branch, and Git will know that you mean &lt;code>origin/main&lt;/code>.&lt;/p>
+&lt;p>&lt;code>--verbose&lt;/code> provides more detailed information about what&amp;rsquo;s happening during the push operation.&lt;/p>
+&lt;hr>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">clone&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">url&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-verbose&lt;/span> &lt;span class="c"># clone a repo, the main branch will be the default branch to clone.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">clone&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-recursive&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">url&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-verbose&lt;/span> &lt;span class="c"># clone a repo with all its submodules(aka. sub-repos)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">clone&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-recurse-submodules&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">url&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-verbose&lt;/span> &lt;span class="c"># same as above.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">clone&lt;/span> &lt;span class="n">-b&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">branch] [url&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-verbose&lt;/span> &lt;span class="c"># clone a specific branch.&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>clone a repo. the &lt;code>repo&lt;/code> will be a new folder. So you do not to create a new folder to store the repo.&lt;/p>
+&lt;p>usually may not &lt;code>url&lt;/code>, may &lt;code>ssh&lt;/code>.&lt;/p>
+&lt;h2 id="logs">logs&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-Powershell" data-lang="Powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">log&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="n">log&lt;/span> &lt;span class="n">overview&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">log&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-oneline&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="n">simplified&lt;/span> &lt;span class="n">log&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">log&lt;/span> &lt;span class="n">-p&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="n">details&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="nb">diff &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="no">branch 1]...[branch 2&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="n">show&lt;/span> &lt;span class="n">differences&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>view logs. type &lt;code>q&lt;/code> to exit view.&lt;/p>
+&lt;h2 id="recovery">Recovery&lt;/h2>
+&lt;h3 id="revert-a-merge">Revert a merge&lt;/h3>
+&lt;p>restore to previous commit/stage is a good way to solve conflicts, however, it is more dangerous because it may cause data loss if used improperly.&lt;/p>
+&lt;p>to revert a merge, first we should check out the desired revert commit ID/commit hash using &lt;code>git log&lt;/code>, and then type:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">revert&lt;/span> &lt;span class="n">-m&lt;/span> &lt;span class="mf">1&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="nb">commit-hash&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">revert&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="nb">commit-hash&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>-m 1&lt;/code> means revert to the first parent of the merge commit.&lt;/p>
+&lt;h3 id="restore-from-local-commit">Restore from local commit&lt;/h3>
+&lt;p>when lost changes due to improper use, first check the commit info:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">reflog&lt;/span> &lt;span class="c"># short for `reference log`, which is a reference to the commits that are referenced by the tips of branches and tags.&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>get all the commit hash, and then use:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">checkout&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="nb">commit-hash&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>to view the commit.
+if it is the desired commit, save it using:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">checkout&lt;/span> &lt;span class="n">-b&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">new branch name&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>this will create a new branch and save the commit.&lt;/p>
+&lt;h3 id="recover-from-remote-repository">Recover from remote repository&lt;/h3>
+&lt;p>first we should use &lt;code>git fetch origin&lt;/code> to fetch the latest changes and then:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="n">reset&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-hard&lt;/span> &lt;span class="n">origin&lt;/span>&lt;span class="p">/[&lt;/span>&lt;span class="no">branch name&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>we could try to compare the local and remote repository before recovery:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">git&lt;/span> &lt;span class="nb">diff &lt;/span>&lt;span class="n">origin&lt;/span>&lt;span class="p">/[&lt;/span>&lt;span class="no">branch name&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Remember, &lt;code>git reset --hard&lt;/code> is a destructive operation. It permanently discards local changes and commits. Make sure you really want to discard your local changes before running this command. If you want to keep your local changes, consider using git stash or git branch to save them somewhere else before running &lt;code>git reset --hard&lt;/code>.&lt;/p></description></item><item><title>Ubuntu Tips</title><link>https://liautraver.github.io/p/ubuntu-tips/</link><pubDate>Thu, 01 Feb 2024 23:17:36 +0800</pubDate><guid>https://liautraver.github.io/p/ubuntu-tips/</guid><description>&lt;h1 id="overview-of-the-linux-system">Overview of the Linux system&lt;/h1>
+&lt;p>root directory: &lt;code>/&lt;/code>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>directory&lt;/th>
+&lt;th>description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>/bin&lt;/code>&lt;/td>
+&lt;td>essential command binaries or programs&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>/boot&lt;/code>&lt;/td>
+&lt;td>static files of the boot loader&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>/dev&lt;/code>&lt;/td>
+&lt;td>device files (not the shorthand of &lt;code>development&lt;/code>)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>/etc&lt;/code>&lt;/td>
+&lt;td>host-specific system-wide editable text configuration files (not the &lt;code>e.tc.&lt;/code>)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>/home&lt;/code>&lt;/td>
+&lt;td>home directories for users&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>/root&lt;/code>&lt;/td>
+&lt;td>home directory for the root user&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>/lib&lt;/code>&lt;/td>
+&lt;td>shared libraries dependencies&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>/var&lt;/code>&lt;/td>
+&lt;td>variable data files&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>/tmp&lt;/code>&lt;/td>
+&lt;td>temporary files&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>/usr&lt;/code>&lt;/td>
+&lt;td>user related programs and data&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>/proc&lt;/code>&lt;/td>
+&lt;td>process information pseudo-filesystem&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>/sys&lt;/code>&lt;/td>
+&lt;td>sysfs is a virtual file system provided by the Linux kernel&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>/mnt&lt;/code>&lt;/td>
+&lt;td>temporarily mounted filesystems&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;hellip;&lt;/td>
+&lt;td>&amp;hellip;&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h1 id="useful-commands">Useful commands&lt;/h1>
+&lt;h2 id="ubuntu">Ubuntu&lt;/h2>
+&lt;h4 id="list">list&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-Shell" data-lang="Shell">&lt;span class="line">&lt;span class="cl">ls // list files and directories
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ls -l // list files and directories with details
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ls -a // list all files and directories
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ls -lh // list files and directories with human readable format
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ls -lt // list files and directories by &lt;span class="nb">time&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">touch &lt;span class="o">[&lt;/span>file&lt;span class="o">]&lt;/span> // create a file
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="show-file-content">show file content&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-Shell" data-lang="Shell">&lt;span class="line">&lt;span class="cl">cat &lt;span class="o">[&lt;/span>file&lt;span class="o">]&lt;/span> // show file content
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">less &lt;span class="o">[&lt;/span>file&lt;span class="o">]&lt;/span> // show file content with page
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">more &lt;span class="o">[&lt;/span>file&lt;span class="o">]&lt;/span> // show file content with page, only support &lt;span class="sb">`&lt;/span>down&lt;span class="sb">`&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">head -n &lt;span class="o">[&lt;/span>file&lt;span class="o">]&lt;/span> // show the first n lines of file
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">tail -n &lt;span class="o">[&lt;/span>file&lt;span class="o">]&lt;/span> // show the last n lines of file
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="edit-file">edit file&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-Shell" data-lang="Shell">&lt;span class="line">&lt;span class="cl">cat &lt;span class="o">[&lt;/span>file 1&lt;span class="o">]&lt;/span> &amp;gt; &lt;span class="o">[&lt;/span>file 2&lt;span class="o">]&lt;/span> // copy file &lt;span class="m">1&lt;/span> to file &lt;span class="m">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cat &lt;span class="o">[&lt;/span>file 1&lt;span class="o">]&lt;/span> &amp;gt;&amp;gt; &lt;span class="o">[&lt;/span>file 2&lt;span class="o">]&lt;/span> // append file &lt;span class="m">1&lt;/span> to file &lt;span class="m">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cat &lt;span class="o">[&lt;/span>file 1&lt;span class="o">]&lt;/span> &lt;span class="o">[&lt;/span>file 2&lt;span class="o">]&lt;/span> &amp;gt; &lt;span class="o">[&lt;/span>file 3&lt;span class="o">]&lt;/span> // combine file &lt;span class="m">1&lt;/span> and file &lt;span class="m">2&lt;/span> to file &lt;span class="m">3&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;content&amp;#34;&lt;/span> &amp;gt; &lt;span class="o">[&lt;/span>file&lt;span class="o">]&lt;/span> // write content to file
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;content&amp;#34;&lt;/span> &amp;gt;&amp;gt; &lt;span class="o">[&lt;/span>file&lt;span class="o">]&lt;/span> // append content to file
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># the `&amp;gt;` `&amp;gt;&amp;gt;` applies to many commands, e.g., `ls -l &amp;gt; [file]`, which will write the output of `ls -l` to file&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="permission-denied-when-running-a-script">permission denied when running a script&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">ls &lt;/span>&lt;span class="n">-l&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">file&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="n">check&lt;/span> &lt;span class="n">permission&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">chmod&lt;/span> &lt;span class="p">+&lt;/span>&lt;span class="n">x&lt;/span> &lt;span class="p">./[&lt;/span>&lt;span class="no">file&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="n">add&lt;/span> &lt;span class="n">execute&lt;/span> &lt;span class="n">permission&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="apt-advanced-package-tool">apt: Advanced Package Tool&lt;/h4>
+&lt;p>&lt;em>a word: I don&amp;rsquo;t think it&amp;rsquo;s advanced&amp;hellip; :P&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span class="line">&lt;span class="cl">&lt;span class="n">sudo&lt;/span> &lt;span class="n">apt&lt;/span> &lt;span class="n">install&lt;/span> &lt;span class="nb">build-essential&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">sudo&lt;/span> &lt;span class="n">apt&lt;/span> &lt;span class="n">update&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">sudo&lt;/span> &lt;span class="n">apt&lt;/span> &lt;span class="n">upgrade&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">sudo&lt;/span> &lt;span class="n">apt&lt;/span> &lt;span class="nb">full-upgrade&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">sudo&lt;/span> &lt;span class="n">apt&lt;/span> &lt;span class="n">install&lt;/span> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">package&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;em>we need a cleanup sometimes&amp;hellip;&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span class="line">&lt;span class="cl">&lt;span class="n">sudo&lt;/span> &lt;span class="n">apt&lt;/span> &lt;span class="n">list&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-installed&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="n">list&lt;/span> &lt;span class="n">all&lt;/span> &lt;span class="n">installed&lt;/span> &lt;span class="n">packages&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">sudo&lt;/span> &lt;span class="n">apt&lt;/span> &lt;span class="n">remove&lt;/span> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">package&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">sudo&lt;/span> &lt;span class="n">apt&lt;/span> &lt;span class="n">autoremove&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">sudo&lt;/span> &lt;span class="n">apt&lt;/span> &lt;span class="n">autoclean&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">sudo&lt;/span> &lt;span class="n">apt&lt;/span> &lt;span class="n">autopurge&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">sudo&lt;/span> &lt;span class="n">journalctl&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-vacuum-time&lt;/span>&lt;span class="p">=&lt;/span>&lt;span class="n">nd&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="n">n&lt;/span> &lt;span class="p">&amp;gt;&lt;/span> &lt;span class="mf">0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">remove&lt;/span> &lt;span class="n">system&lt;/span> &lt;span class="n">logs&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">aptitude&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="n">interactive&lt;/span> &lt;span class="n">package&lt;/span> &lt;span class="n">manager&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h5 id="purge-removed-packages">purge removed packages&lt;/h5>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span class="line">&lt;span class="cl">&lt;span class="n">dpkg&lt;/span> &lt;span class="n">-l&lt;/span> &lt;span class="p">|&lt;/span> &lt;span class="n">grep&lt;/span> &lt;span class="s1">&amp;#39;^rc&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> &lt;span class="n">awk&lt;/span> &lt;span class="s1">&amp;#39;{print $2}&amp;#39;&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="n">list&lt;/span> &lt;span class="n">removed&lt;/span> &lt;span class="n">packages&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">dpkg&lt;/span> &lt;span class="n">-l&lt;/span> &lt;span class="p">|&lt;/span> &lt;span class="n">grep&lt;/span> &lt;span class="s1">&amp;#39;^rc&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> &lt;span class="n">awk&lt;/span> &lt;span class="s1">&amp;#39;{print $2}&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> &lt;span class="n">xargs&lt;/span> &lt;span class="n">sudo&lt;/span> &lt;span class="n">dpkg&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-purge&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="n">purge&lt;/span> &lt;span class="n">removed&lt;/span> &lt;span class="n">packages&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h5 id="restart-service-usually-after-modifying-configuration-file">restart service (usually after modifying configuration file)&lt;/h5>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span class="line">&lt;span class="cl">&lt;span class="n">source&lt;/span> &lt;span class="p">~/.&lt;/span>&lt;span class="py">bashrc&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="n">apply&lt;/span> &lt;span class="n">changes&lt;/span> &lt;span class="k">in&lt;/span> &lt;span class="p">.&lt;/span>&lt;span class="py">bashrc&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">sudo&lt;/span> &lt;span class="n">systemctl&lt;/span> &lt;span class="n">restart&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">service&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h5 id="when-having-multiple-versions-of-a-package">when having multiple versions of a package&lt;/h5>
+&lt;p>for example, we have multiple versions of &lt;code>gcc&lt;/code> installed, and we want to switch between them.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span class="line">&lt;span class="cl">&lt;span class="n">sudo&lt;/span> &lt;span class="nb">update-alternatives&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-config&lt;/span> &lt;span class="n">gcc&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="n">list&lt;/span> &lt;span class="n">all&lt;/span> &lt;span class="n">versions&lt;/span> &lt;span class="n">of&lt;/span> &lt;span class="n">gcc&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">sudo&lt;/span> &lt;span class="nb">update-alternatives&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-remove-all&lt;/span> &lt;span class="n">gcc&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="n">remove&lt;/span> &lt;span class="n">all&lt;/span> &lt;span class="n">versions&lt;/span> &lt;span class="n">of&lt;/span> &lt;span class="n">gcc&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">only&lt;/span> &lt;span class="n">remove&lt;/span> &lt;span class="n">the&lt;/span> &lt;span class="n">link&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">not&lt;/span> &lt;span class="n">the&lt;/span> &lt;span class="n">package&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>set gcc-13 as default:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span class="line">&lt;span class="cl">&lt;span class="n">sudo&lt;/span> &lt;span class="nb">update-alternatives&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-install&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="n">usr&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">bin&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">gcc&lt;/span> &lt;span class="n">gcc&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="n">usr&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">bin&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">gcc&lt;/span>&lt;span class="p">-&lt;/span>&lt;span class="mf">12&lt;/span> &lt;span class="mf">20&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">sudo&lt;/span> &lt;span class="nb">update-alternatives&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-install&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="n">usr&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">bin&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">gcc&lt;/span> &lt;span class="n">gcc&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="n">usr&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">bin&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">gcc&lt;/span>&lt;span class="p">-&lt;/span>&lt;span class="mf">13&lt;/span> &lt;span class="mf">30&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h5 id="ubuntu-vm-occupied-too-much-space-dispite-not-having-much-data-in-it">Ubuntu VM occupied too much space dispite not having much data in it&lt;/h5>
+&lt;p>Windows automatically allocates a certain amount of space for the VM, that means even if you clean up the VM, the space won&amp;rsquo;t be released. To solve this problem, we need to compact the VM.&lt;/p>
+&lt;p>Launch PowerShell as administrator, and run the following commands:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd &lt;/span>&lt;span class="s2">&amp;#34;%userprofile%\AppData\Local\Packages\CanonicalGroupLimited.&amp;lt;Distro&amp;gt;\LocalState\&amp;#34;&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="n">go&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="n">the&lt;/span> &lt;span class="n">VM&lt;/span> &lt;span class="n">folder&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">wsl&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-shutdown&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="n">shut&lt;/span> &lt;span class="n">down&lt;/span> &lt;span class="n">the&lt;/span> &lt;span class="n">VM&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">optimize-vhd&lt;/span> &lt;span class="n">-Path&lt;/span> &lt;span class="p">.\&lt;/span>&lt;span class="n">ext4&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">vhdx&lt;/span> &lt;span class="n">-Mode&lt;/span> &lt;span class="n">full&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="n">compact&lt;/span> &lt;span class="n">the&lt;/span> &lt;span class="n">VM&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>check the space again, it should be fine now.&lt;/p>
+&lt;h5 id="wget-the-non-interactive-network-downloader">wget: The non-interactive network downloader&lt;/h5>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">wget &lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">url&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h5 id="htop-interactive-process-viewer">htop: interactive process viewer&lt;/h5>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span class="line">&lt;span class="cl">&lt;span class="n">free&lt;/span> &lt;span class="n">-h&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="n">show&lt;/span> &lt;span class="n">memory&lt;/span> &lt;span class="n">usage&lt;/span> &lt;span class="k">in&lt;/span> &lt;span class="n">human&lt;/span> &lt;span class="n">readable&lt;/span> &lt;span class="n">format&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nb">built-in&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">htop&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="n">show&lt;/span> &lt;span class="n">all&lt;/span> &lt;span class="n">processes&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h5 id="curl-transfer-a-url">curl: transfer a URL&lt;/h5>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">curl &lt;/span>&lt;span class="n">-O&lt;/span> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">url&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h5 id="scp-openssh-secure-file-copy-remote-file-copy-program">scp: OpenSSH secure file copy (remote file copy program)&lt;/h5>
+&lt;h3 id="add-ssh-key-to-remote-server">add ssh key to remote server&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span class="line">&lt;span class="cl">&lt;span class="n">scp&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="n">-C&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="n">-i&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">to&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">your&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">pem&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="n">-r&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">user&lt;/span>&lt;span class="p">&amp;gt;@&amp;lt;&lt;/span>&lt;span class="n">host&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="err">:&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">folder&lt;/span>&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">local_folder&lt;/span>&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="n">remote&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="n">local&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">scp&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="n">-C&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="n">-i&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">to&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">your&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">pem&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="n">-r&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">local_folder&lt;/span>&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">user&lt;/span>&lt;span class="p">&amp;gt;@&amp;lt;&lt;/span>&lt;span class="n">host&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="err">:&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">folder&lt;/span>&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="n">local&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="n">remote&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;em>if file path contains space, use `&amp;quot;&amp;rsquo; &amp;lsquo;&amp;quot;`` to wrap it&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span class="line">&lt;span class="cl">&lt;span class="n">scp&lt;/span> &lt;span class="p">...&lt;/span> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">user&lt;/span>&lt;span class="p">&amp;gt;@&amp;lt;&lt;/span>&lt;span class="n">host&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="err">:&lt;/span>&lt;span class="s2">&amp;#34;&amp;#39;/path/to/file which contains space&amp;#39;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>if network broken, add &lt;code>-C&lt;/code> to resume transfer.&lt;/p>
+&lt;p>if you use pem file to log in, add &lt;code>-i /path/to/your/pem&lt;/code>.&lt;/p>
+&lt;p>if transfer a folder, add &lt;code>-r&lt;/code>.&lt;/p>
+&lt;p>if network isn&amp;rsquo;t stable, use &lt;code>rsync&lt;/code> instead.
+&lt;code>rsync&lt;/code> is a fast and extraordinarily versatile file copying tool.&lt;/p>
+&lt;p>learn when needed.&lt;/p>
+&lt;h5 id="tar-the-gnu-version-of-the-tar-archiving-utility">tar: The GNU version of the tar archiving utility&lt;/h5>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span class="line">&lt;span class="cl">&lt;span class="n">tar&lt;/span> &lt;span class="n">-xvf&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">file&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">tar&lt;/span> &lt;span class="n">-cvf&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">file] [dir&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h5 id="zip-package-and-compress-archive-files-into-zip-file">zip: package and compress (archive) files into zip file&lt;/h5>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span class="line">&lt;span class="cl">&lt;span class="n">zip&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">file] [dir&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h5 id="unzip-list-test-and-extract-compressed-files-in-a-zip-archive">unzip: list, test and extract compressed files in a ZIP archive&lt;/h5>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span class="line">&lt;span class="cl">&lt;span class="n">unzip&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">file&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="remote-server-management">remote server management&lt;/h4>
+&lt;h5 id="ram-less-than-it-should-be">RAM less than it should be&lt;/h5>
+&lt;p>cloud server providers usually apply some RAM into &lt;code>kdump&lt;/code>, which is used for debugging and error logging. we can disable
+it to get more RAM.
+in ubuntu system, we can disable it by:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span class="line">&lt;span class="cl">&lt;span class="n">sudo&lt;/span> &lt;span class="n">vim&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="n">etc&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="k">default&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">grub&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>we could see a bunch of lines,change the following lines value into 0:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span class="line">&lt;span class="cl">&lt;span class="n">GRUB_CMDLINE_LINUX_DEFAULT&lt;/span>&lt;span class="p">=&lt;/span>&lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">GRUB_CMDLINE_LINUX&lt;/span>&lt;span class="p">=&lt;/span>&lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>then run:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span class="line">&lt;span class="cl">&lt;span class="n">sudo&lt;/span> &lt;span class="nb">update-grub&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">sudo&lt;/span> &lt;span class="n">reboot&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>re-login and check RAM again.it should be fine now.&lt;/p>
+&lt;h5 id="screen-screen-manager-with-vt100ansi-terminal-emulation">Screen: screen manager with VT100/ANSI terminal emulation&lt;/h5>
+&lt;p>Normally, when we run a script in a remote server, we need to keep the terminal open. If we close the connection, and
+login again,we won&amp;rsquo;t find the running script even using fg command. Screen can help us solve this problem.&lt;/p>
+&lt;p>Screen is a full-screen window manager that multiplexes a physical terminal between several processes, typically
+interactive shells.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span class="line">&lt;span class="cl">&lt;span class="n">screen&lt;/span> &lt;span class="n">-S&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">name&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="n">create&lt;/span> &lt;span class="n">a&lt;/span> &lt;span class="n">screen&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">screen&lt;/span> &lt;span class="n">-ls&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="n">list&lt;/span> &lt;span class="n">all&lt;/span> &lt;span class="n">screens&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">screen&lt;/span> &lt;span class="n">-r&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">name&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="n">resume&lt;/span> &lt;span class="n">a&lt;/span> &lt;span class="n">screen&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">screen&lt;/span> &lt;span class="n">-d&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="no">name&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="p">//&lt;/span> &lt;span class="n">detach&lt;/span> &lt;span class="n">a&lt;/span> &lt;span class="n">screen&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>can also use &lt;kbd>CTRL&lt;/kbd> &lt;kbd>A&lt;/kbd> chords to &lt;kbd>D&lt;/kbd> to detach a screen.
+to scroll in a screen, use &lt;kbd>Ctrl&lt;/kbd> + &lt;kbd>A&lt;/kbd> chords to &lt;kbd>[&lt;/kbd> to enter copy mode, then use &lt;kbd>CTRL&lt;/kbd> &lt;kbd>F&lt;/kbd>,&lt;kbd>CTRL&lt;/kbd> &lt;kbd>B&lt;/kbd> to scroll front and back, &lt;kbd>q&lt;/kbd> to quit(abort the copy mode).&lt;/p>
+&lt;p>to run a script in a screen, just &lt;code>screen -S &amp;lt;name&amp;gt; ./&amp;lt;script&amp;gt;&lt;/code>.&lt;/p>
+&lt;h5 id="install-llvm-clang-from-source">install llvm-clang from source&lt;/h5>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span class="line">&lt;span class="cl">&lt;span class="p">$&lt;/span> &lt;span class="n">git&lt;/span> &lt;span class="n">clone&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-depth&lt;/span> &lt;span class="mf">1&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-branch&lt;/span> &lt;span class="n">llvmorg&lt;/span>&lt;span class="p">-&lt;/span>&lt;span class="mf">12.0&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">1&lt;/span> &lt;span class="n">https&lt;/span>&lt;span class="err">:&lt;/span>&lt;span class="p">//&lt;/span>&lt;span class="n">github&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">com&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">llvm&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="nb">llvm-project&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">git&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">$&lt;/span> &lt;span class="n">cmake&lt;/span> &lt;span class="n">-S&lt;/span> &lt;span class="nb">llvm-project&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">llvm&lt;/span> &lt;span class="n">-B&lt;/span> &lt;span class="nb">llvm-project&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">build&lt;/span> &lt;span class="p">\&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">-DCMAKE_BUILD_TYPE&lt;/span>&lt;span class="p">=&lt;/span>&lt;span class="n">Release&lt;/span> &lt;span class="p">\&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">-DLLVM_ENABLE_PROJECTS&lt;/span>&lt;span class="p">=&lt;/span>&lt;span class="n">all&lt;/span> &lt;span class="p">\&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">-DCMAKE_CXX_COMPILER&lt;/span>&lt;span class="p">=&lt;/span>&lt;span class="n">clang&lt;/span>&lt;span class="p">++&lt;/span> &lt;span class="p">\&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">-DCMAKE_C_COMPILER&lt;/span>&lt;span class="p">=&lt;/span>&lt;span class="n">clang&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">$&lt;/span> &lt;span class="n">cmake&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-build&lt;/span> &lt;span class="nb">llvm-project&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">build&lt;/span> &lt;span class="n">-j8&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">$&lt;/span> &lt;span class="n">cmake&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-install&lt;/span> &lt;span class="nb">llvm-project&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">build&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-prefix&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="n">usr&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">local&lt;/span> &lt;span class="c"># or somewhere else&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item></channel></rss>

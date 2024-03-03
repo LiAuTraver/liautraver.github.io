@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>C++ on LiAuTraver's Corner</title><link>https://liautraver.github.io/tags/c++/</link><description>Recent content in C++ on LiAuTraver's Corner</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 17 Feb 2024 13:17:25 +0800</lastBuildDate><atom:link href="https://liautraver.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml"/><item><title>Using MSVC in Visual Studio Code</title><link>https://liautraver.github.io/p/using-msvc-in-visual-studio-code/</link><pubDate>Sat, 17 Feb 2024 13:17:25 +0800</pubDate><guid>https://liautraver.github.io/p/using-msvc-in-visual-studio-code/</guid><description>&lt;img src="https://liautraver.github.io/p/using-msvc-in-visual-studio-code/vscode.png" alt="Featured image of post Using MSVC in Visual Studio Code" />&lt;blockquote>
+&lt;h2 id="span-style--color-redthe-content-was-outdated-and-would-be-updated-in-the-near-futurespan">&lt;strong>&lt;span style = "color: red;">&lt;em>The content was outdated and would be updated in the near future.&lt;/em>&lt;/span>&lt;/strong>&lt;/h2>
+&lt;/blockquote>
+&lt;p>When I first ventured into the realm of C++, DEV C++ served as my initial Integrated Development Environment (IDE). It boasted simplicity and minimalism, making it particularly welcoming for beginners. However, at the time of its release, DEV&amp;rsquo;s GCC was stuck at C++11. The outdated user interface further dampened its appeal. There&amp;rsquo;s no point using a decade-old compiler and it&amp;rsquo;s outdated user interface. Nor does it have intellisense or any other modern IDE features. So I moved to Visual Studio, only to find it too complex and bloated for my taste.Visual Studio Code is the perfect middle ground for me. It&amp;rsquo;s lightweight, has intellisense, and supports the latest C++ standard. After struggling with the editor for a whole day, the GCC &lt;code>launch.json&lt;/code> and &lt;code>tasks.json&lt;/code> still failed to work in the integrated terminal. The external terminal launched was &lt;em>surprisingly&lt;/em> slow. I had to shift my focus to MSVC.&lt;/p>
+&lt;p>The official MSVC documentation in VS Code proved to be not only sparse but also somewhat difficult to implement, demanding the opening of VS Code in Visual Studio Development Command Prompt/Powershell. Thanks to &lt;a class="link" href="https://blog.futrime.com/en/p/compiling-c/c-programs-in-vscode-with-msvc/" target="_blank" rel="noopener"
+>Futrime&amp;rsquo;s blog&lt;/a>, I finally figured it out. Definitely check &lt;a class="link" href="https://blog.futrime.com/en" target="_blank" rel="noopener"
+>him&lt;/a> out! However, there is room for improvement in both the &lt;code>tasks.json&lt;/code> and the launch speed within the integrated terminal.&lt;/p>
+&lt;p>In his blog, Futrime introduced the &lt;code>window&lt;/code> option in &lt;code>tasks.json&lt;/code> to launch tasks in the integrated terminal using &lt;code>Developer Command Prompt for VS&lt;/code>. However, it is unnecessary to execute every task in the VS prompt, as it proves slow and time-consuming. Adding the &lt;code>VSDevCmd.bat&lt;/code> or &lt;code>DevShell.dll&lt;/code> module to environmental variables is also discouraged due to potential system slowdowns. Instead, a more efficient approach involves pasting the full path of these files into the &lt;code>args&lt;/code> option in &lt;code>tasks.json&lt;/code>. Here&amp;rsquo;s an excerpt from my &lt;code>tasks.json&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="line">&lt;span class="cl">&lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;type&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;shell&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;label&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;cl - C++&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;command&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;powershell.exe&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;args&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;-Command&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;Import-Module &amp;#39;M:\\Coding\\.vscode\\Microsoft.VisualStudio.DevShell.dll&amp;#39;&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;;Enter-VsDevShell 0eeed396 -SkipAutomaticLocation&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;;cl.exe /TP /Zi /EHsc /std:c++latest /Zc:__cplusplus /Fo${fileDirname}\\output\\ /Fd${fileDirname}\\output\\ /Od /MP /W4 /Fe:${fileDirname}\\output\\${fileBasenameNoExtension}.exe /I${workspaceFolder}\\include\\ ${file}&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">],&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;problemMatcher&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;$msCompile&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">],&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;group&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;kind&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;build&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;isDefault&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;presentation&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;reveal&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;never&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;panel&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;shared&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;focus&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;close&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Don&amp;rsquo;t scream. I understand this example may seem intricate, so let me break it down step by step.&lt;/p>
+&lt;p>&lt;code>command&lt;/code> is set to powershell.exe.
+&lt;code>args&lt;/code> represents the arguments that the command will take.
+To obtain the launch command for your VSDevShell, open Windows Terminal, press &lt;kbd> CTRL &lt;/kbd> + &lt;kbd> , &lt;/kbd> to access settings, navigate to the VS Dev Powershell profile, and review your VSDevShell&amp;rsquo;s launch command. The specific command may vary between different VS versions. For me, it was:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">powershell&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">exe&lt;/span> &lt;span class="n">-NoExit&lt;/span> &lt;span class="n">-Command&lt;/span> &lt;span class="s2">&amp;#34;&amp;amp;{Import-Module &amp;#34;&amp;#34;&amp;#34;&lt;/span>&lt;span class="n">C:&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">Program&lt;/span> &lt;span class="n">Files&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">Microsoft&lt;/span> &lt;span class="n">Visual&lt;/span> &lt;span class="n">Studio&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="mf">2022&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">Community&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">Common7&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">Tools&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">Microsoft&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">VisualStudio&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">DevShell&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">dll&lt;/span>&lt;span class="s2">&amp;#34;&amp;#34;&amp;#34;; Enter-VsDevShell 0eeed396 -SkipAutomaticLocation -DevCmdArguments &amp;#34;&amp;#34;&amp;#34;&lt;/span>&lt;span class="n">-arch&lt;/span>&lt;span class="p">=&lt;/span>&lt;span class="n">x64&lt;/span> &lt;span class="n">-host_arch&lt;/span>&lt;span class="p">=&lt;/span>&lt;span class="n">x64&lt;/span>&lt;span class="s2">&amp;#34;&amp;#34;&amp;#34;}&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>It might seem tempting to directly include this command in the args, but the challenge lies in the fact that args is not a simple string; it&amp;rsquo;s an array of strings. The most vexing part is that the integrated PowerShell launched by VS Code task does not recognize &lt;code>&amp;amp;&lt;/code> as a command, and spaces in the path pose additional complications. The reason is unknown for me. Thus, I copied the dll module to a valid path and included it in the args. The cl.exe and its flags were also added to the args. However, the task would run endlessly, as VS Code&amp;rsquo;s task does not terminate unless the command does. Removing &lt;code>-NoExit&lt;/code> ensures the task terminates, and there&amp;rsquo;s no need for &lt;code>;exit&lt;/code> at the end of the command.&lt;/p>
+&lt;p>Also, due to peculiarities in PowerShell, &lt;code>;&lt;/code> is not a valid separator if we put it separately or at the end of the command. Nor do the cl args in which has space. We have to put the whole command into a single string and separate the commands with &lt;code>;&lt;/code>.
+&lt;code>0eeed396&lt;/code> is the hash of the VS 2022 Community Edition x64 Developer Powershell.
+&lt;code>-SkipAutomaticLocation&lt;/code> is to prevent the shell from changing the current directory to the workspace folder.&lt;/p>
+&lt;p>My cl args targets the latest C++ standard, generates full debugging information, and outputs the object file, pdb file and the executable file to the &lt;code>output&lt;/code> folder in the same directory as the source file.&lt;/p>
+&lt;p>Then creates a &lt;code>launcher profile&lt;/code> in the &lt;code>launch.json&lt;/code> for debugging. Notice the &lt;code>type&lt;/code> must be &lt;code>cppvsdbg&lt;/code> rather than &lt;code>cppdbg&lt;/code>. All done! Now you can press &lt;kbd> F5 &lt;/kbd> to build and debug your C++ program in VS Code with MSVC without any hassle.&lt;/p>
+&lt;blockquote>
+&lt;p>Photo by &lt;a class="link" href="https://code.visualstudio.com/brand" target="_blank" rel="noopener"
+>Visual Studio Code Team&lt;/a> on &lt;a class="link" href="https://www.microsoft.com/en-us" target="_blank" rel="noopener"
+>Microsoft&lt;/a>&lt;/p>
+&lt;/blockquote></description></item><item><title>C++ Learning Notes</title><link>https://liautraver.github.io/p/c-learning-notes/</link><pubDate>Mon, 05 Feb 2024 17:17:25 +0800</pubDate><guid>https://liautraver.github.io/p/c-learning-notes/</guid><description>&lt;h1 id="c-learning-notes">C++ Learning Notes&lt;/h1>
+&lt;h6 id="const-modifier-after-function-declaration">&lt;code>const&lt;/code> modifier after function declaration&lt;/h6>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cpp" data-lang="cpp">&lt;span class="line">&lt;span class="cl">&lt;span class="k">class&lt;/span> &lt;span class="nc">A&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">public&lt;/span>&lt;span class="o">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kt">void&lt;/span> &lt;span class="n">foo&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="k">const&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kt">void&lt;/span> &lt;span class="nf">foo&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// note: the const modifier is part of the function signature, that means, the two foo functions are different and overloadable.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="p">};&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kt">int&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">A&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">a&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">foo&lt;/span>&lt;span class="p">();&lt;/span> &lt;span class="c1">// OK, if the class does not have the ordinary foo function, the const foo function will be called. it&amp;#39;s OK to call a const function on a non-const object.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="k">const&lt;/span> &lt;span class="n">A&lt;/span> &lt;span class="n">b&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">b&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">foo&lt;/span>&lt;span class="p">();&lt;/span> &lt;span class="c1">// OK
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="n">b&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">foo&lt;/span>&lt;span class="p">();&lt;/span> &lt;span class="c1">// Error: no matching function for call to &amp;#39;A::foo() const&amp;#39;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>The &lt;code>const&lt;/code> keyword after a member function declaration means that the function is a &amp;ldquo;const member function &amp;ldquo;. This has two main implications:&lt;/p>
+&lt;ol>
+&lt;li>The function can be called on &lt;code>const&lt;/code> objects of the class, as well as on &lt;code>pointer/reference to const&lt;/code> objects. Non-const member functions can only be called on non-const objects.&lt;/li>
+&lt;li>Inside the function, the &lt;code>this&lt;/code> pointer is treated as a &lt;code>const&lt;/code> pointer, meaning you can&amp;rsquo;t modify the object&amp;rsquo;s data members (unless they are declared as &lt;code>mutable&lt;/code>).&lt;/li>
+&lt;/ol>
+&lt;p>So, you would typically make a member function &lt;code>const&lt;/code> if it doesn&amp;rsquo;t need to modify the object, and you want to be able to call it on &lt;code>const&lt;/code> objects. This is often the case for &amp;ldquo;getter&amp;rdquo; functions that just return the value of a data member, for example.&lt;/p>
+&lt;h6 id="macro-misc">macro misc&lt;/h6>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cpp" data-lang="cpp">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#define STRINGIFY(x) #x
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#define TOSTRING(x) STRINGIFY(x)
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#define LINE_NUMBER TOSTRING(__LINE__)
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>The reason for using two macros (&lt;code>STRINGIFY&lt;/code> and &lt;code>TOSTRING&lt;/code>) instead of one is due to the order of macro expansion in C++.&lt;/p>
+&lt;p>When a macro is expanded, its arguments are not immediately expanded. They are first substituted as is into the macro body. Only after this substitution are they expanded.&lt;/p>
+&lt;p>So, if you directly use &lt;code>STRINGIFY(__LINE__)&lt;/code>, &lt;code>__LINE__&lt;/code> is substituted as is into the macro body, and you end up with the string &lt;code>&amp;quot;__LINE__&amp;quot;&lt;/code> instead of the string representation of the current line number.&lt;/p>
+&lt;p>By using two macros (&lt;code>TOSTRING(x)&lt;/code> and &lt;code>STRINGIFY(x)&lt;/code>), you ensure that &lt;code>__LINE__&lt;/code> is fully expanded to the line number before it&amp;rsquo;s converted to a string. &lt;code>TOSTRING(__LINE__)&lt;/code> first substitutes &lt;code>__LINE__&lt;/code> with the line number, and then &lt;code>STRINGIFY&lt;/code> converts this number to a string.&lt;/p></description></item></channel></rss>
